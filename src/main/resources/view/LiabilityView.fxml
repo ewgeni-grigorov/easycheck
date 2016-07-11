@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.easycheck.view.LiabilityViewController">
+    <stylesheets>
+        <URL value="@liabilityview.css" />
+    </stylesheets>
+   <children>
+      <Button fx:id="openButton" layoutX="292.0" layoutY="14.0" mnemonicParsing="false" text="Open..." />
+      <Button fx:id="clearButton" layoutX="369.0" layoutY="14.0" mnemonicParsing="false" text="Clear" />
+      <TabPane layoutY="50.0" prefHeight="327.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="23.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
+        <tabs>
+          <Tab fx:id="liabilityTab" text="Liabilities">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="167.0" prefWidth="554.0">
+                     <children>
+                        <TableView fx:id="liabilitiesTableView" prefHeight="313.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <columns>
+                            <TableColumn fx:id="numberLiabilityColumn" text="Number" />
+                            <TableColumn fx:id="ownerLiabilityColumn" prefWidth="135.0" text="Owner" />
+                              <TableColumn fx:id="countLiabilityColumn" prefWidth="52.0" text="Count" />
+                              <TableColumn fx:id="oldLiabilityColumn" prefWidth="77.0" text="Old" />
+                              <TableColumn fx:id="currentLiabilityColumn" prefWidth="68.0" text="Current" />
+                              <TableColumn fx:id="totalLiabilityColumn" text="Total" />
+                              <TableColumn fx:id="toLiabilityColumn" prefWidth="89.0" text="To" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab fx:id="liabilityRepairTab" text="Liability Repairs">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="liabilityRepairsTableView" prefHeight="291.0" prefWidth="600.0" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <columns>
+                            <TableColumn fx:id="numberLiabilityRepairColumn" prefWidth="81.0" text="Number" />
+                            <TableColumn fx:id="ownerLiabilityRepairColumn" prefWidth="127.0" text="Owner" />
+                              <TableColumn fx:id="totalLiabilityRepairColumn" prefWidth="63.0" text="Total" />
+                              <TableColumn fx:id="paidLiabilityRepairColumn" prefWidth="72.0" text="Paid" />
+                              <TableColumn fx:id="restLiabilityRepairColumn" prefWidth="72.0" text="Rest" />
+                              <TableColumn fx:id="fromLiabilityRepairColumn" prefWidth="88.0" text="From" />
+                              <TableColumn fx:id="toLiabilityRepairColumn" prefWidth="78.0" text="To" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+      <Label fx:id="filterLabel" layoutX="14.0" layoutY="19.0" text="Number Filter:" />
+      <TextField fx:id="filterTextField" layoutX="111.0" layoutY="14.0" />
+      <Label fx:id="countLabel" layoutX="7.0" layoutY="379.0" text="Total Count:" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" />
+      <Label fx:id="totalCountLabel" layoutX="90.0" layoutY="379.0" AnchorPane.bottomAnchor="5.0" />
+   </children>
+</AnchorPane>

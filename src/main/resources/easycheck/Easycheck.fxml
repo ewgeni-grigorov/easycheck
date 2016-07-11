@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.easycheck.EasycheckController">
+    <stylesheets>
+        <URL value="@easycheck.css" />
+    </stylesheets>
+   <children>
+      <TilePane layoutX="76.0" layoutY="89.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Button fx:id="paymentsViewButton" mnemonicParsing="false" text="Payments View..." />
+            <Button fx:id="validationButton" mnemonicParsing="false" text="Validation..." />
+            <Button fx:id="liabilitiesViewButton" mnemonicParsing="false" text="Liabilities View..." />
+         </children>
+      </TilePane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.easycheck.view.PaymentsViewController">
+    <stylesheets>
+        <URL value="@paymentsview.css" />
+    </stylesheets>
+   <children>
+      <Button fx:id="openButton" layoutX="286.0" layoutY="12.0" mnemonicParsing="false" text="Open..." />
+      <TableView fx:id="tableViewPayments" layoutX="7.0" layoutY="46.0" prefHeight="348.0" prefWidth="588.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="45.0">
+        <columns>
+          <TableColumn fx:id="columnNumber" prefWidth="84.0" text="Number" />
+            <TableColumn fx:id="columnAmount" prefWidth="66.0" text="Amount" />
+            <TableColumn fx:id="columnTime" prefWidth="158.0" text="Time" />
+          <TableColumn fx:id="columnId" prefWidth="135.0" text="ID" />
+            <TableColumn fx:id="columnPaymentWay" minWidth="3.0" prefWidth="75.0" text="Way" />
+        </columns>
+      </TableView>
+      <Label fx:id="filterLabel" layoutX="14.0" layoutY="17.0" text="Number Filter:" />
+      <TextField fx:id="filterTextField" layoutX="108.0" layoutY="12.0" />
+      <Button fx:id="clearButton" layoutX="358.0" layoutY="12.0" mnemonicParsing="false" text="Clear" />
+      <Label fx:id="totalLabel" layoutX="14.0" layoutY="379.0" text="Total:" AnchorPane.bottomAnchor="5.0" />
+      <Label fx:id="totalAmountLabel" layoutX="51.0" layoutY="379.0" AnchorPane.bottomAnchor="5.0" />
+   </children>
+</AnchorPane>
