@@ -46,6 +46,10 @@ public class LiabilityControl {
 		return liability.getOccupantCount();
 	}
 
+	public Amount getTotalAmount() {
+		return liability.getTotalAmount();
+	}
+
 	public StringProperty ownerProperty() {
 		return new SimpleStringProperty(liability.getOwner());
 	}

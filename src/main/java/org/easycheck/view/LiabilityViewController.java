@@ -59,6 +59,8 @@ public class LiabilityViewController implements Initializable, StagedController,
 	private TextField filterTextField;
 	@FXML
 	private Label totalCountLabel;
+	@FXML
+	private Label totalLiabilityLabel;
 
 	@FXML
 	private TableView<LiabilityControl> liabilitiesTableView;
@@ -108,6 +110,7 @@ public class LiabilityViewController implements Initializable, StagedController,
 	private Stage stage;
 	private String defaultTitle;
 	private BigDecimal totalOccupantCount;
+	private Amount totalLiability;
 
 	public LiabilityViewController() {
 		liabilitiesFileChooser = new FileChooser();
@@ -141,11 +144,12 @@ public class LiabilityViewController implements Initializable, StagedController,
 		});
 
 		filterTextField.textProperty().addListener((observable, oldValue, newValue) -> {
-			initTotal();
+			initTotals();
 			Set<String> filters = FilterUtil.prepareFilters(newValue);
 			filteredLiabilities.setPredicate(liabilityControl -> {
 				if (FilterUtil.match(filters, liabilityControl.getNumber().toString())) {
 					totalOccupantCount = totalOccupantCount.add(liabilityControl.getOccupantCount());
+					totalLiability = totalLiability.add(liabilityControl.getTotalAmount());
 					return true;
 				}
 				return false;
@@ -194,12 +198,13 @@ public class LiabilityViewController implements Initializable, StagedController,
 			return;
 		}
 		clear();
-		initTotal();
+		initTotals();
 		try {
 			LiabilityReport liabilityReport = Parser.parseLiabilities(liabilitiesFile);
 			liabilityReport.getLiabilities().forEach(liability -> {
 				liabilities.add(new LiabilityControl(liability));
 				totalOccupantCount = totalOccupantCount.add(liability.getOccupantCount());
+				totalLiability = totalLiability.add(liability.getTotalAmount());
 			});
 			liabilityReport.getLiabilityRepairs().forEach(liabilityRepair -> {
 				liabilityRepairs.add(new LiabilityRepairControl(liabilityRepair));
@@ -221,14 +226,17 @@ public class LiabilityViewController implements Initializable, StagedController,
 		filteredLiabilityRepairs.setPredicate(null);
 		stage.setTitle(defaultTitle);
 		totalOccupantCount = null;
+		totalLiability = null;
 		flushTotal();
 	}
 
-	private void initTotal() {
+	private void initTotals() {
 		totalOccupantCount = BigDecimal.ZERO;
+		totalLiability = Amount.ZERO;
 	}
 
 	private void flushTotal() {
 		totalCountLabel.setText((null == totalOccupantCount) ? null : totalOccupantCount.toString());
+		totalLiabilityLabel.setText((null == totalLiability) ? null : totalLiability.toString());
 	}
 }
