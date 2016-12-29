@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import java.net.*?>
 <?import java.util.*?>
@@ -7,17 +9,38 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.easycheck.EasycheckController">
+<AnchorPane id="AnchorPane" prefWidth="160.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.easycheck.EasycheckController">
     <stylesheets>
         <URL value="@easycheck.css" />
     </stylesheets>
    <children>
-      <TilePane layoutX="76.0" layoutY="89.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Button fx:id="paymentsViewButton" mnemonicParsing="false" text="Payments View..." />
-            <Button fx:id="validationButton" mnemonicParsing="false" text="Validation..." />
-            <Button fx:id="liabilitiesViewButton" mnemonicParsing="false" text="Liabilities View..." />
+            <Button fx:id="paymentsViewButton" contentDisplay="TOP" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Payments View...">
+               <graphic>
+                  <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/payments.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="liabilitiesViewButton" contentDisplay="TOP" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Liabilities View...">
+               <graphic>
+                  <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/liability.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="validationButton" contentDisplay="TOP" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Validation...">
+               <graphic>
+                  <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/validator.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
          </children>
-      </TilePane>
+      </VBox>
    </children>
 </AnchorPane>
